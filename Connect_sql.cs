@@ -16,13 +16,21 @@ namespace warehouse_home_wpf_sql_05_03_2023
 
         public static void con_sql()
         {
-            const string conn = @"Data Source = (localdb)\MSSQLLocalDB;
+            try
+            {
+                const string conn = @"Data Source = (localdb)\MSSQLLocalDB;
                 Initial Catalog = warehouse; Integrated Security = True;";
-            SqlConnection conn2 = new SqlConnection(conn);
+                SqlConnection conn2 = new SqlConnection(conn);
 
-            conn2.Open();
-            MessageBox.Show("Соединение установлено");
-            conn2.Close();
+                conn2.Open();
+                MessageBox.Show("Соединение установлено");
+                conn2.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
         }
 
     }
