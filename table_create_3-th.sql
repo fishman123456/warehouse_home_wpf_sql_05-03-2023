@@ -27,15 +27,15 @@
 --	-- дата поставки
 --	date_s date not null
 --)
-create table link_table
-(
-	-- id для порядка
-	--id_l int  identity (1,1) primary key not null,
-	--  вторичный ключ, он же номер поставщика
-	num_l int not null ,
-	foreign key (num_l) references product (id_p),
-	-- вторичный ключ, он же имя поставщика
-	name_l int not null,
-	foreign key (name_l) references supplier(id_s)
-	)
-	----alter database scoped configuration set identity_cache=off 
+--create table link_table
+--(
+--	-- id для порядка
+--	--id_l int  identity (1,1) primary key not null,
+--	--  вторичный ключ, он же номер поставщика
+--	num_l int not null ,
+--	foreign key (num_l) references product (id_p),
+--	-- вторичный ключ, он же имя поставщика
+--	name_l int not null,
+--	foreign key (name_l) references supplier(id_s)
+--	)
+--	----alter database scoped configuration set identity_cache=off 

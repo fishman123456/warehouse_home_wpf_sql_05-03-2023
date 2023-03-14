@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,11 @@ namespace warehouse_home_wpf_sql_05_03_2023
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Conn_Click(object sender, RoutedEventArgs e)
+        {
+            Connect_sql.con_sql();
         }
     }
 }
