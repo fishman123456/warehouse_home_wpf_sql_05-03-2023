@@ -8,18 +8,22 @@ using System.Data;
 using Microsoft.Data.SqlClient;
 using Microsoft.Data.SqlTypes;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace warehouse_home_wpf_sql_05_03_2023
 {
     internal class Connect_sql
     {
+       const  string sqlcomm = "SELECT * FROM product";
+
+        const string conn = @"Data Source = (localdb)\MSSQLLocalDB;
+                Initial Catalog = warehouse; Integrated Security = True;";
 
         public static void con_sql()
         {
             try
             {
-                const string conn = @"Data Source = (localdb)\MSSQLLocalDB;
-                Initial Catalog = warehouse; Integrated Security = True;";
+               
                 SqlConnection conn2 = new SqlConnection(conn);
 
                 conn2.Open();
@@ -32,6 +36,28 @@ namespace warehouse_home_wpf_sql_05_03_2023
             }
            
         }
-
+        public static void read_sql() 
+        {
+           
+        using(SqlConnection conn2 = new SqlConnection(conn)) 
+            {
+                conn2.Open();
+                SqlCommand cmd = new SqlCommand(sqlcomm ,conn2);
+                
+                
+                //DataGrid dt = new DataGrid();
+                SqlDataReader reader = cmd.ExecuteReader();
+                int count = 0;
+                while (reader.Read()) 
+                {
+                    MessageBox.Show("читаем"+" "+ count);
+                    count++;
+                    object id_p = reader.GetValue(0);
+                    object type_p = reader.GetValue(1);
+                    object prod_supplier_p = reader.GetValue(2);
+                   
+                }
+            }
+        }
     }
 }

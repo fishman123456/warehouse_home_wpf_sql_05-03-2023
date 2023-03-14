@@ -20,8 +20,11 @@
         </Grid.RowDefinitions>
         <Button Name="Conn" Grid.Column="0" Grid.Row="2" 
                 Content="Установить соединение" FontSize="18" Click="Conn_Click">
-            
         </Button>
-
+        <Button Name="Data" Grid.Column="1" Grid.Row="2"
+                Content="Загрузка данных" FontSize="18" Click="Data_Click">
+        </Button>
+        <DataGrid Name="dg" Grid.ColumnSpan="4" Grid.Row="1" ItemsSource="{Binding}"/>
+       
     </Grid>
 </Window>
